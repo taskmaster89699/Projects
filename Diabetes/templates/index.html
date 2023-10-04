@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1>Diabetes Prediction</h1>
+    <form action="{{ url_for ('predict')}}" method="post">
+        <div class="mb-1">
+            <label for="gender" class="form-label">Gender</label>
+            <input type="text" class="form-control" name='gender' placeholder="0 for Female and 1 for Male" id="gender">
+        </div>
+        <div class="mb-1">
+            <label for="age" class="form-label">Age</label>
+            <input type="text" class="form-control" name='age' placeholder="Enter your age" id="age">
+        </div>
+        <div class="mb-1">
+            <label for="hypertension" class="form-label">Hypertension</label>
+            <input type="text" class="form-control" name='hypertension'
+                placeholder="0 for no history of Hypertension and 1 for Hypertension patient" id="hypertension">
+        </div>
+        <div class="mb-1">
+            <label for="heart_disease" class="form-label">Heart Disease</label>
+            <input type="text" class="form-control" name='heart_diseas'
+                placeholder="0 for no history of heart disease and 1 for a heart disease patient" id="heart_diseas">
+        </div>
+        <div class="mb-1">
+            <label for="smoking" class="form-label">Smoking History</label>
+            <input type="text" class="form-control" name='smoking'
+                placeholder="0- No Info, 1- Current Smoker, 2- Long History of Smoking, 3- Former Smoker, 4- Never Smoked"
+                id="smoking">
+        </div>
+        <div class="mb-1">
+            <label for="bmi" class="form-label">Body Mass Index</label>
+            <input type="text" class="form-control" name='bmi' placeholder="Enter Body Mass Index" id="bmi">
+        </div>
+        <div class="mb-1">
+            <label for="hba1c" class="form-label">HbA1c Level</label>
+            <input type="text" class="form-control" name='hba1c'
+                placeholder="Average Blood Sugar Level for past 3 months" id="hba1c">
+        </div>
+        <div class="mb-1">
+            <label for="glucose" class="form-label">Blood Glucose Level</label>
+            <input type="text" class="form-control" name='glucose' placeholder="Blood Glucose Level" id="glucose">
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">All Fields Ready</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Predict</button>
+    </form>
+    <br>
+    <br>
+    <h1>{{prediction_text}}</h1>
+    <pre><strong>    A probability of 0 means you are not at risk of diabetes currently.
+    A probability of 1 means you are currently at risk of diabetes and should consult a doctor.</strong></pre>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
